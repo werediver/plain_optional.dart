@@ -5,6 +5,13 @@ class Optional<T> {
 
   const Optional.none() : this(null);
 
+  bool get hasValue => iif(some: (_) => true, none: () => false);
+
+  T valueOr(T Function() fallback) => iif(
+        some: (value) => value,
+        none: fallback,
+      );
+
   U iif<U>({@required U Function(T) some, @required U Function() none}) {
     assert(some != null);
     assert(none != null);
