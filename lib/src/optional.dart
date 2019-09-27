@@ -21,5 +21,15 @@ class Optional<T> {
         none: () => const Optional.none(),
       );
 
+  @override
+  String toString() => '$Optional($_value)';
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) || other is Optional && _value == other._value;
+
+  @override
+  int get hashCode => _value.hashCode;
+
   final T _value;
 }
