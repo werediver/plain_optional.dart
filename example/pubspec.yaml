@@ -1,0 +1,12 @@
+name: example
+description: An example application using plain_optional package.
+version: 0.1.0
+homepage: https://github.com/werediver/plain_optional.dart
+author: Raman Fedaseyeu <raman.fedaseyeu@gmail.com>
+publish_to: none
+
+environment:
+  sdk: '>=2.5.0 <3.0.0'
+
+dependencies:
+  plain_optional:
