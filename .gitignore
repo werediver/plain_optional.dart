@@ -1,0 +1,13 @@
+# Files and directories created by pub
+.dart_tool/
+.packages
+# Leave it out of source control unless your package is an application package
+pubspec.lock
+
+# Conventional directory for build outputs
+build/
+
+# Directory created by dartdoc
+doc/api/
+
+.idea/
