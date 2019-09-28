@@ -1,3 +1,7 @@
+## 0.1.3
+
+- Fix `map`, `flatMap`, `hashCode`.
+
 ## 0.1.2
 
 - Add `unsafe` getter.

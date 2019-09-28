@@ -1,6 +1,6 @@
 name: plain_optional
 description: An implementation of a type `Optional<T>` in Dart, similar to the standard one in Swift.
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/werediver/plain_optional.dart
 author: Raman Fedaseyeu <raman.fedaseyeu@gmail.com>
 
