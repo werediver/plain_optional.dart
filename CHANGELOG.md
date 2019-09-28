@@ -1,3 +1,7 @@
+## 0.1.1+1
+
+- Update the package description    .
+
 ## 0.1.1
 
 - Add two- and three-argument map and flat-map functions.
