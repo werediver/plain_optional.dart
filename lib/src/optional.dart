@@ -84,5 +84,8 @@ class Optional<T> {
   @override
   int get hashCode => _value.hashCode;
 
+  /// Avoid using this property.
+  T get unsafe => _value;
+
   final T _value;
 }
