@@ -3,6 +3,16 @@ import 'package:test/test.dart';
 
 void main() {
   group('$Optional', () {
+    group("valueOr", () {
+      test("returns the value", () {
+        expect(const Optional(1).valueOr(() => throw Exception()), 1);
+      });
+
+      test("falls back", () {
+        expect(const Optional<int>.none().valueOr(() => 1), 1);
+      });
+    });
+
     group("map", () {
       test("transforms a value", () {
         expect(const Optional(1).map((value) => "$value"), const Optional("1"));

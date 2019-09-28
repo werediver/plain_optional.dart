@@ -18,15 +18,21 @@ class Optional<T> {
     return _value != null ? some(_value) : none();
   }
 
-  Optional<U> map<U>(U Function(T) f) => iif(
-        some: (value) => Optional(f(value)),
-        none: () => const Optional.none(),
-      );
+  Optional<U> map<U>(U Function(T) f) {
+    assert(f != null);
+    return iif(
+      some: (value) => Optional(f(value)),
+      none: () => Optional<U>.none(),
+    );
+  }
 
-  Optional<U> flatMap<U>(Optional<U> Function(T) f) => iif(
-        some: (value) => f(value),
-        none: () => const Optional.none(),
-      );
+  Optional<U> flatMap<U>(Optional<U> Function(T) f) {
+    assert(f != null);
+    return iif(
+      some: (value) => f(value),
+      none: () => Optional<U>.none(),
+    );
+  }
 
   Optional<U> map2<T1, U>(
     Optional<T1> other,
@@ -82,7 +88,7 @@ class Optional<T> {
       identical(this, other) || other is Optional && _value == other._value;
 
   @override
-  int get hashCode => _value.hashCode;
+  int get hashCode => _value?.hashCode ?? 0;
 
   /// Avoid using this property.
   T get unsafe => _value;
