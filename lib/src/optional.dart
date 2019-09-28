@@ -28,6 +28,52 @@ class Optional<T> {
         none: () => const Optional.none(),
       );
 
+  Optional<U> map2<T1, U>(
+    Optional<T1> other,
+    U Function(T, T1) f,
+  ) =>
+      flatMap(
+        (value) => other.map(
+          (value1) => f(value, value1),
+        ),
+      );
+
+  Optional<U> flatMap2<T1, U>(
+    Optional<T1> other,
+    Optional<U> Function(T, T1) f,
+  ) =>
+      flatMap(
+        (value) => other.flatMap(
+          (value1) => f(value, value1),
+        ),
+      );
+
+  Optional<U> map3<T1, T2, U>(
+    Optional<T1> other,
+    Optional<T2> other2,
+    U Function(T, T1, T2) f,
+  ) =>
+      flatMap(
+        (value) => other.flatMap(
+          (value1) => other2.map(
+            (value2) => f(value, value1, value2),
+          ),
+        ),
+      );
+
+  Optional<U> flatMap3<T1, T2, U>(
+    Optional<T1> other,
+    Optional<T2> other2,
+    Optional<U> Function(T, T1, T2) f,
+  ) =>
+      flatMap(
+        (value) => other.flatMap(
+          (value1) => other2.flatMap(
+            (value2) => f(value, value1, value2),
+          ),
+        ),
+      );
+
   @override
   String toString() => '$Optional($_value)';
 
