@@ -1,6 +1,6 @@
 ## 0.1.1+1
 
-- Update the package description    .
+- Update the package description.
 
 ## 0.1.1
 
