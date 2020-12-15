@@ -1,3 +1,7 @@
+## 1.0.0-nullsafety.0
+
+- Make null-safe
+
 ## 0.1.3
 
 - Fix `map`, `flatMap`, `hashCode`.
