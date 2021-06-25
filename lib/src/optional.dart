@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 class Optional<T> {
   const Optional(this._value);
 
@@ -12,27 +10,17 @@ class Optional<T> {
         none: fallback,
       );
 
-  U iif<U>({@required U Function(T) some, @required U Function() none}) {
-    assert(some != null);
-    assert(none != null);
-    return _value != null ? some(_value) : none();
-  }
+  U iif<U>({required U Function(T) some, required U Function() none}) => _value != null ? some(_value!) : none();
 
-  Optional<U> map<U>(U Function(T) f) {
-    assert(f != null);
-    return iif(
-      some: (value) => Optional(f(value)),
-      none: () => Optional<U>.none(),
-    );
-  }
+  Optional<U> map<U>(U Function(T) f) => iif(
+        some: (value) => Optional(f(value)),
+        none: () => Optional<U>.none(),
+      );
 
-  Optional<U> flatMap<U>(Optional<U> Function(T) f) {
-    assert(f != null);
-    return iif(
-      some: (value) => f(value),
-      none: () => Optional<U>.none(),
-    );
-  }
+  Optional<U> flatMap<U>(Optional<U> Function(T) f) => iif(
+        some: (value) => f(value),
+        none: () => Optional<U>.none(),
+      );
 
   Optional<U> map2<T1, U>(
     Optional<T1> other,
@@ -84,14 +72,13 @@ class Optional<T> {
   String toString() => '$Optional($_value)';
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is Optional && _value == other._value;
+  bool operator ==(Object other) => identical(this, other) || other is Optional && _value == other._value;
 
   @override
   int get hashCode => _value?.hashCode ?? 0;
 
   /// Avoid using this property.
-  T get unsafe => _value;
+  T? get unsafe => _value;
 
-  final T _value;
+  final T? _value;
 }
