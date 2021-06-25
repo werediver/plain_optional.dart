@@ -1,3 +1,7 @@
+## 1.0.0
+
+- Promoting v1.0.0-nullsafety.0 to a release
+
 ## 1.0.0-nullsafety.0
 
 - Make null-safe
